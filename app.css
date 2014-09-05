@@ -1,0 +1,36 @@
+.product {
+	margin-bottom: 25px;
+}
+
+.product-price {
+	text-align: right;
+}
+
+.col-md-8.product-price {
+	text-align: left;
+}
+
+.center-pills {
+	display: inline-block;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.ng-invalid.ng-dirty {
+	border-color: red;
+}
+
+.ng-valid.ng-dirty {
+	border-color:green;
+}
