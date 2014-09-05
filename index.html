@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="store" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample Store</title>
+
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div ng-controller="StoreController as store" class="col-lg-6">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in store.products">
+                <div class="row">
+                    <div class="pull-left">
+                        <h3>
+                            {{product.name}}
+                        </h3>
+                    </div>
+                    <div class="pull-right">
+                        <h3>{{product.price | currency}}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <img ng-src="{{product.image}}" height="50" />
+                </div>
+                <div class="row">
+                    <section ng-controller="PanelController as panel">
+                        <ul class="nav nav-pills">
+                            <li ng-class="{active: panel.isSelected(1)}">
+                                <a href ng-click="panel.selectTab(1);">Description</a>
+                            </li>
+                            <li ng-class="{active: panel.isSelected(2)}">
+                                <a href ng-click="panel.selectTab(2);">Specifications</a>
+                            </li>
+                            <li ng-class="{active: panel.isSelected(3)}">
+                                <a href ng-click="panel.selectTab(3);">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="panel" ng-show="panel.isSelected(1)">
+                            <h4>Description</h4>
+                            <p>{{product.description}}</p>
+                        </div>
+                        <div class="panel" ng-show="panel.isSelected(2)">
+                            <h4>Specifications</h4>
+                            <p>{{product.specifications}}</p>
+                        </div>
+                        <div class="panel" ng-show="panel.isSelected(3)">
+                            <h4>Reviews</h4>
+                            <p>{{product.reviews}}</p>
+                        </div>
+                    </section>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="lib/angular/angular.min.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
